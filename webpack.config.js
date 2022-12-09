@@ -11,19 +11,20 @@ const isProduction = process.env.NODE_ENV == "production";
 const stylesHandler = MiniCssExtractPlugin.loader;
 
 const config = {
-  entry: "./src/index.ts",
+  entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
   },
   devServer: {
     open: true,
-    host: "localhost",
-    hot: true,
+    host: process.env.HOST,
+    port: process.env.PORT,
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: "index.html",
+      hash: true,
     }),
 
     new MiniCssExtractPlugin(),
@@ -34,17 +35,22 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/i,
-        loader: "ts-loader",
+        test: /\.(js|jsx)$/i,
+        loader: "babel-loader",
+        exclude: ["/node_modules/"],
+      },
+      {
+        test: /\.(ts|tsx|)$/i,
+        use: ["babel-loader", "ts-loader"],
         exclude: ["/node_modules/"],
       },
       {
         test: /\.styl$/i,
-        use: [stylesHandler, "css-loader", "postcss-loader", "stylus-loader"],
+        use: ["style-loader", "css-loader", "postcss-loader", "stylus-loader"],
       },
       {
         test: /\.css$/i,
-        use: [stylesHandler, "css-loader", "postcss-loader"],
+        use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,

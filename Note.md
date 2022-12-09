@@ -48,5 +48,38 @@ const devServer = new WebpackDevServer(serverConfig, compiler);
 上述操作完了后，`npm run start`后, 自动打开`http://ginachen.demo.test:8080`
 
 
+#### ReactComponent, Antd, Router
+v6版本相比v5有了不少的改变，后续有找到好的文档再贴过来
 
+#### 接入stylus
+首先需要为`webpack.config.js`中加入loader 
+```
+{
+  test: /\.(js|jsx)$/i,
+  loader: "babel-loader",
+  exclude: ["/node_modules/"],
+},
+{
+  test: /\.(ts|tsx|)$/i,
+  use: ["babel-loader", "ts-loader"],
+  exclude: ["/node_modules/"],
+},
+{
+  test: /\.styl$/i,
+  use: ["style-loader", "css-loader", "postcss-loader", "stylus-loader"],
+},
+```
+这里需要注意的是不要同时使用`style-loader`和`mini-css-extract-plugin`功能会有重合，一起使用会报错，且后者不支持HMR，建议直接用`style-loader`
+
+loader加完后，往`nav.styl`随便写上几句，run，无效。一开始还以为是路径不对，多次check后，排除该原因。决定还是从`react-scripts`着手，然后发现脚本封装的配置仅支持scss和sass，如下图 
+<img src="src\imgs\react-script-loader.PNG" width=400 height=110 /> 
+
+再次check`start.js`后，也没发现读取了项目的`webpack.config.js`,不会吧！不会吧！只暴露了环境变量吗？找了一圈，果真没有，这也太不自由了，stylus是必然要用的。果断放弃``react-script`的封装包
+
+#### 1 完善初始化`webpack.config.js`基础配置，loader弄好
+#### 2 改改pkg运行脚本 
+```
+"start": "cross-env PORT=8080 HOST=ginachen.demo.test webpack-dev-server",
+```
+#### 3 `npm start` run起来，出现一些ts错误。改改`tsconfig.json`后，运行起来了，stylus也正常有效
 
