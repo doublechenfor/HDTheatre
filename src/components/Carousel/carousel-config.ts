@@ -1,5 +1,3 @@
-import { url } from "inspector"
-import { lazy } from "react"
 
 export enum CarouselEnum {
     Main = 'Main',
@@ -10,7 +8,7 @@ export enum CarouselEnum {
 export const CarouselConfig:Record<string, React.CSSProperties[]> = {
     [CarouselEnum.Main]: [
         {
-            backgroundImage: 'url(../../imgs/auto-config-files.PNG)',
+            backgroundImage: `url(${require('../../assets/imgs/auto-config-files.png')})`,
             height: '300px'
         },
         {
