@@ -6,6 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 import NavHeader from './layouts/common/NavHeader';
+import 'animate.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

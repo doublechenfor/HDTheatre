@@ -6,7 +6,7 @@
     "target": "es5",
     "allowJs": true,
     "jsx": "react",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "noEmit": true,
   },
-  "files": ["src/index.ts"],
 }

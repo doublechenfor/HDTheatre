@@ -111,3 +111,29 @@ webpack4及其之前的版本，常规使用方法是通过url-loader和file-loa
 #### Http服务 - Axios和Mockjs接入
 
 axios可直接使用，也可通过create创建实例
+
+#### 接入styluslint保存时自动修复  
+[stylelint官网](https://stylelint.io/user-guide/get-started)  
+
+但由于我们用的stylus，直接用`stylelint stylelint-config-standard`是没有效果的，需要安装[stylelint-plugin-stylus](https://www.npmjs.com/package/stylelint-plugin-stylus)，关于这个插件，我们根据文档配置就可以了，同时在pkj加入下列command：
+```
+"scripts": {
+  ......
+  "lint:style": "stylelint src/**/*.styl"
+}
+```  
+最后在vscode的settings里加入下列配置就可以了：  
+```
+"stylelint.validate": [
+    "stylus"
+],
+"editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": true
+},
+```  
+#### 接入方便的动画库
+查到了很多常用的动画库，如[animista](https://animista.net/play/basic)、[animate.css](https://animate.style/)、[Hover](http://ianlunn.github.io/Hover/)、[csshake](https://elrumordelaluz.github.io/csshake/)、[angrytools](https://angrytools.com/)
+这里我选择老动画库`animate.css`
+
+#### 增加[dajjs](https://dayjs.fenxianglu.cn/category/)时间处理库
+#### 新增Antd Icon库
