@@ -1,6 +1,7 @@
 {
     "extends": "stylelint-plugin-stylus/standard",
       "rules": {
-        "stylus/indentation": 4
+        "stylus/indentation": 4,
+        "max-line-length": 140
       }
 }

@@ -5,7 +5,7 @@ import './nav.styl';
 
 export default function NavHeader() {
 
-  const showTitle = AppRouter.map((item,index) => <NavLink key={index} end={false} to={item.path}>{item.title}</NavLink>);
+  const showTitle = AppRouter.map((item, index) => <NavLink key={index} end={false} to={item.path}>{item.title}</NavLink>);
 
   return (
     <div>

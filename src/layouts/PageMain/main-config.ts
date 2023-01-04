@@ -2,7 +2,8 @@ import React from "react";
 
 export enum MainSectionStyle {
     Carousel = 'Carousel',
-    Category = 'Category'
+    Category = 'Category',
+    RecommendMovie = 'RecommendMovie',
 }
 
 export const styleConfig: Record<MainSectionStyle, React.CSSProperties|null>  = {
@@ -11,5 +12,10 @@ export const styleConfig: Record<MainSectionStyle, React.CSSProperties|null>  = 
         width: '285px',
         height: '213.75px',
         overflow: 'hidden',
+    },
+    [MainSectionStyle.RecommendMovie] : {
+        width: '190px',
+        height: '300px',
+        overflow: 'hidden'
     }
 }

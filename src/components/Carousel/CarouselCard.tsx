@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import { Carousel } from 'antd';
 import './index.styl';
-import { CarouselDTO } from '../../service/mainPage.d'; 
+import { CarouselDTO } from '../../service/mainPage'; 
 
 interface IConfig {
   name: string,

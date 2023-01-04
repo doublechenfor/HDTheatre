@@ -42,7 +42,7 @@ const config = {
         exclude: ["/node_modules/"],
       },
       {
-        test: /\.(ts|tsx|)$/i,
+        test: /\.(ts|tsx)$/i,
         use: ["babel-loader", "ts-loader"],
         exclude: ["/node_modules/"],
       },
