@@ -21,9 +21,10 @@ const config = {
     open: true,
     host: process.env.HOST,
     port: process.env.PORT,
+    hot: true
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: "index.html",
       hash: true,

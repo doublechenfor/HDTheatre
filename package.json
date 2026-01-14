@@ -22,7 +22,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "cross-env PORT=8080 HOST=ginachen.demo.test webpack-dev-server",
+    "start": "cross-env PORT=8080 webpack-dev-server",
     "build": "webpack --watch",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
